@@ -321,6 +321,7 @@ public class ModelCompiler {
             for (BeanModel descendant : descendants) {
                 // do not handle bean as tagged union if any descendant has "non-related" generic parameter
                 final List<String> mappedGenericVariables = GenericsResolver.mapGenericVariablesToBase(descendant.getOrigin(), bean.getOrigin());
+                
                 if (mappedGenericVariables == null || mappedGenericVariables.contains(null)) {
                     isTaggedUnion = false;
                 }
